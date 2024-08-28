@@ -392,7 +392,7 @@ class MainMenu(Entity):
         def sand_track_func():
             if sand_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (-63, -30, -7)
                 self.car.rotation = (0, 90, 0)
@@ -441,7 +441,7 @@ class MainMenu(Entity):
         def grass_track_func():
             if grass_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (-80, -30, 18.5)
                 self.car.rotation = (0, 90, 0)
@@ -492,7 +492,7 @@ class MainMenu(Entity):
         def snow_track_func():
             if snow_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (-5, -35, 93)
                 self.car.rotation = (0, 90, 0)
@@ -541,7 +541,7 @@ class MainMenu(Entity):
         def forest_track_func():
             if forest_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (12, -35, 76)
                 self.car.rotation = (0, 90, 0)
@@ -590,7 +590,7 @@ class MainMenu(Entity):
         def savannah_track_func():
             if savannah_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (-14, -35, 42)
                 self.car.rotation = (0, 90, 0)
@@ -639,7 +639,7 @@ class MainMenu(Entity):
         def lake_track_func():
             if lake_track.unlocked:
                 self.car.visible = True
-                mouse.locked = True
+                # mouse.locked = True
                 self.maps_menu.disable()
                 self.car.position = (-121, -40, 158)
                 self.car.rotation = (0, 90, 0)
@@ -1194,7 +1194,7 @@ class MainMenu(Entity):
         # Pause Menu
 
         def resume():
-            mouse.locked = True
+            # mouse.locked = True
             self.pause_menu.disable()
 
         def respawn():
@@ -1901,7 +1901,7 @@ class MainMenu(Entity):
         if not self.start_menu.enabled and not self.main_menu.enabled and not self.server_menu.enabled and not self.settings_menu.enabled and not self.race_menu.enabled and not self.maps_menu.enabled and not self.settings_menu.enabled and not self.garage_menu.enabled and not self.audio_menu.enabled and not self.controls_menu.enabled and not self.host_menu.enabled and not self.created_server_menu.enabled and not self.video_menu.enabled and not self.gameplay_menu.enabled and not self.quit_menu.enabled:
             if key == "escape":
                 self.pause_menu.enabled = not self.pause_menu.enabled
-                mouse.locked = not mouse.locked
+                # mouse.locked = not mouse.locked
 
             self.start_spin = False
 

@@ -2,6 +2,8 @@ from ursina import *
 from ursina import curve
 from particles import Particles, TrailRenderer
 import json
+import os
+import csv
 
 sign = lambda x: -1 if x < 0 else (1 if x > 0 else 0)
 Text.default_resolution = 1080 * Text.size
@@ -16,6 +18,9 @@ class Car(Entity):
             rotation = rotation,
         )
 
+        # TODO 
+        self.history = [] # Collect position history for training.
+        
         # Rotation parent
         self.rotation_parent = Entity()
 
@@ -338,6 +343,9 @@ class Car(Entity):
             cosmetic.y = 0.3
 
     def update(self):
+        # TODO
+        self.history.append([self.position[0], self.position[1], self.position[2], self.count])
+        
         # Stopwatch/Timer
         # Race Gamemode
         if self.gamemode == "race":
@@ -839,6 +847,12 @@ class Car(Entity):
         Checks if the score is lower than the highscore
         """
         if self.gamemode == "race":
+            # TODO
+            # This is called whenever we cross the finish line, so use it to save history.
+            with open(os.environ['RALLY_TRAIN_FOLDER'], "w") as f:
+                wr = csv.writer(f)
+                wr.writerows(self.history)
+            
             self.last_count = self.count
             self.reset_count = 0.0
             self.timer.disable()

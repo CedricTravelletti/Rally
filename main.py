@@ -23,16 +23,21 @@ Text.default_resolution = 1080 * Text.size
 
 # Window
 
-app = Ursina()
-window.title = "Rally"
+window.title = "ursina"
 window.borderless = False
 window.show_ursina_splash = True
-window.cog_button.disable()
+# window.cog_button.disable()
+# window.exit_button.disable()
+app = Ursina()
 window.fps_counter.disable()
-window.exit_button.disable()
 
 if sys.platform != "darwin":
-    window.fullscreen = True
+    window.fullscreen = False
+    window.size = (400, 400)
+    window.position = Vec2(
+        int((window.screen_resolution[0] - window.fullscreen_size[0]) / 2),
+        int((window.screen_resolution[1] - window.fullscreen_size[1]) / 2)
+    )
 else:
     window.size = window.fullscreen_size
     window.position = Vec2(
